@@ -1,4 +1,4 @@
-# M1DDL3R04Dhc22OO-5UP3551D*updated*
+# M1DDL3R04Dhc22OO-5UP3551D *updated*
 
 The script that sorts the accumulated hc22000 list.
 It prefers pmkids over eapol, it also leaves insecure "challenge" message pairs if there is no better one instead.
