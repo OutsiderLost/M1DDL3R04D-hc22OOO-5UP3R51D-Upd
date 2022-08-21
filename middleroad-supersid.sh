@@ -56,9 +56,9 @@ sed -e '/^[[:punct:]]*$/d' -e 's/[[:punct:] ]//g' mergewordlist.txt > /root/midd
 sed -n w"mergewordlist02.txt" /root/middleroad/essidcheck/other/*.txt
 sort -u mergewordlist02.txt -o /root/middleroad/essidcheck/other/FullWordlist.txt
 
-echo ESSIDS EXTRATION OF ESSIDS FOR CONTROL
-echo MAC_CLIENT, MAC_AP, ESSID extract HEX format and uppercase copy inthe -other folder.
-echo Created BONUS sorted Wordlist inthe -other folder.
+echo 'ESSIDS EXTRATION OF ESSIDS FOR CONTROL'
+echo 'MAC_CLIENT, MAC_AP, ESSID extract HEX format and uppercase copy inthe -other folder.'
+echo 'Created BONUS sorted Wordlist inthe -other folder.'
 
 grep 'WPA\*01' /root/middleroad/allmergeSORT.hc22000 | sort -t "*" -k 6,6 -u > /root/middleroad/ABCproced/A-sortpmkid.hc22000
 grep '2$' /root/middleroad/allmergeSORT.hc22000 | sort -t "*" -k 6,6 -u > /root/middleroad/ABCproced/B-sortauthorized.hc22000
