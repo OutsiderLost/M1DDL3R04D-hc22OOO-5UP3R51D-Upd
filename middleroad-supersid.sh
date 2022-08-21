@@ -9,8 +9,8 @@ mkdir /root/middleroad/essidcheck/other
 sed -n w"allmerge.hc22000" *.hc22000
 sed -e '/^[[:space:]]*$/d' -e 's/[ ]//g' allmerge.hc22000 | sort -u > /root/middleroad/allmergeSORT.hc22000
 
-echo Create folders root-middleroad......
-echo MERGE AND SORT THE FILE
+echo 'Create folders root-middleroad......'
+echo 'MERGE AND SORT THE FILE'
 
 cat /root/middleroad/allmergeSORT.hc22000 | awk 'BEGIN { FS = "*" } ; {print "$HEX[" $6 "]" }' | sort -u | hashcat --stdout > /root/middleroad/essidcheck/essidnamecheckSORT-01.txt
 cat /root/middleroad/allmergeSORT.hc22000 | awk 'BEGIN { FS = "*" } ; {print "$HEX[" $6 "]" }' | sort -u > /root/middleroad/essidcheck/other/essidnameHexmarkSORT.txt
@@ -64,7 +64,7 @@ grep 'WPA\*01' /root/middleroad/allmergeSORT.hc22000 | sort -t "*" -k 6,6 -u > /
 grep '2$' /root/middleroad/allmergeSORT.hc22000 | sort -t "*" -k 6,6 -u > /root/middleroad/ABCproced/B-sortauthorized.hc22000
 grep '0$' /root/middleroad/allmergeSORT.hc22000 | sort -t "*" -k 6,6 -u > /root/middleroad/ABCproced/C-sortchallenge.hc22000
 
-echo Separation of PMKID and EAPOL -- from and authentic and challenge point of view--
+echo 'Separation of PMKID and EAPOL -- from and authentic and challenge point of view --'
 
 sed -n w"BC-alleapol.hc22000" /root/middleroad/ABCproced/B-sortauthorized.hc22000 /root/middleroad/ABCproced/C-sortchallenge.hc22000
 sed -n w"allABCprobe.hc22000" /root/middleroad/ABCproced/A-sortpmkid.hc22000 /root/middleroad/ABCproced/B-sortauthorized.hc22000 /root/middleroad/ABCproced/C-sortchallenge.hc22000
@@ -82,7 +82,7 @@ sed 's/[ ]//g' allABCmerge.hc22000 | sort -t "*" -k 6,6 -u > /root/middleroad/es
 cat /root/middleroad/essidcheck/CleanABCsortprobecheck.hc22000 | awk 'BEGIN { FS = "*" } ; {print "$HEX[" $6 "]" }' | hashcat --stdout > /root/middleroad/essidcheck/essidnameprobecheckSORT-02.txt
 cat /root/middleroad/essidcheck/CleanABCsortmergecheck.hc22000 | awk 'BEGIN { FS = "*" } ; {print "$HEX[" $6 "]" }' | hashcat --stdout > /root/middleroad/essidcheck/essidnamemergecheckSORT-02.txt
 
-echo Separation operations performed. Additional essidname files createdfor checking.
+echo 'Separation operations performed. Additional essidname files createdfor checking.'
 
 rm allmerge.hc22000
 rm /root/middleroad/essidcheck/CleanABCsortprobecheck.hc22000
@@ -109,14 +109,14 @@ mv allABCmerge.hc22000 /root/middleroad/ABCproced/
 mv allABCprobe.hc22000 /root/middleroad/ABCproced/
 mv BC-alleapol.hc22000 /root/middleroad/ABCproced/
 
-echo Unnecessary files removed. Opened the -root-middleroad folder...
+echo 'Unnecessary files removed. Opened the -root-middleroad folder...'
 
-open /root/middleroad
+open '/root/middleroad'
 
-echo CHECK RESULT -essidcheck -- essidnamemergecheckSORT-02.txt --- essidnamecheckSORT-01.txt --
+echo 'CHECK RESULT -essidcheck -- essidnamemergecheckSORT-02.txt --- essidnamecheckSORT-01.txt --'
 
-echo CHECK RESULT -essidcheck -- essidnameprobecheckSORT-02.txt --- essidnamecheckSORT-01.txt --
+echo 'CHECK RESULT -essidcheck -- essidnameprobecheckSORT-02.txt --- essidnamecheckSORT-01.txt --'
 
-echo The results must match.
+echo 'The results must match.'
 
-echo If all is well, feel freeto use -Clean -- CleanABCsortmerge.hc22000
+echo 'If all is well, feel freeto use -Clean -- CleanABCsortmerge.hc22000'
